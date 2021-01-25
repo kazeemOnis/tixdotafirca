@@ -104,4 +104,8 @@ p {
       }
     }
   }
+
+  @media screen and (max-width: $bp-tab){
+    padding-top: 2rem;
+  }
 }
