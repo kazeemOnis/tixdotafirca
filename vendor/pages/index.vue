@@ -5,11 +5,12 @@
         your attendees
       </h1>
       <button class="page__button" @click="guessNationalities()">
-        <flag-icon />
+        <b-spinner small v-if="loading"></b-spinner>
+        <flag-icon v-if="!loading"/>
         <span class="page__button-text">
           guess nationalities
         </span>
-        <arrowRight-icon />
+        <arrowRight-icon v-if="!loading"/>
       </button>
     </div>
 
@@ -58,6 +59,14 @@ export default {
         attendee.nationality = '';
         return attendee;
       });
+    },
+
+    pageStart() {
+      return (this.currentPage - 1) * this.perPage;
+    },
+
+    length() {
+      return this.pageStart + this.perPage
     }
   },
 
@@ -68,6 +77,7 @@ export default {
       ],
       perPage: 10,
       currentPage: 1,
+      loading: false
     };
   },
 
@@ -78,11 +88,9 @@ export default {
      * @returns {string} Names of displayed attendees
      */
     getAttendeeNames() {
-      let pageStart = (this.currentPage - 1) * this.perPage;
-      let length = pageStart + this.perPage;
       let queryString = `?name[]=`;
-      for (let i = pageStart; i < length; i += 1) {
-        if (i === pageStart) {
+      for (let i = this.pageStart; i < this.length; i += 1) {
+        if (i === this.pageStart) {
           queryString += `${this.data[i].name}`;
         } else queryString += `&name=${this.data[i].name}`;
       }
@@ -95,9 +103,11 @@ export default {
      */
     async guessNationalities() {
       const queryString = this.getAttendeeNames();
+      this.loading = true;
       const res = await this.$store.dispatch('api/getResource', {
         route: `https://api.nationalize.io/${queryString}`,
       });
+      this.loading = false;
       this.setNationalities(res);
     },
 
@@ -106,15 +116,10 @@ export default {
      * @param {array}
      */
     setNationalities(list) {
-      console.log(list);
-      let pageStart = (this.currentPage - 1) * this.perPage;
-      let length = pageStart + this.perPage;
-      let countryId = '';
       let country = '';
-      for (let i = pageStart, j = 0; i < length; i += 1, j += 1) {
+      for (let i = this.pageStart, j = 0; i < this.length; i += 1, j += 1) {
         if (list[j].country.length > 0) {
-          countryId = list[j].country[0].country_id;
-          country = this.countries[countryId];
+          country = this.countries[list[j].country[0].country_id];
           this.data[i].nationality = `${country.emoji} ${country.name}`;
         }
         else this.data[i].nationality = 'No guess country';
