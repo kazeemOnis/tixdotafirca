@@ -1,0 +1,80 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  box-shadow: 0px 4px 29px 5px rgba(0, 0, 0, 0.03);
+  padding: 0 2.6rem;
+
+  &__logo {
+    height: 35px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 25px;
+    }
+  }
+
+  .dropdown {
+    .dropdown-toggle {
+      background-color: #FFFFFF;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #F6F6F6;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      border-radius: 25px;
+      padding: 0 10px 0 5px;
+    }
+
+    .dropdown-menu {
+      text-transform: lowercase;
+      font-size: 14px;
+      margin-top: 10px;
+      min-width: 50px;
+      background-color:#FFFFFF;
+      border: 1px solid#EBEEF5;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+
+      a.dropdown-item {
+        color: #606266;
+      }
+
+      a.dropdown-item:hover {
+        background-color: lighten($primary, 35);
+        color: $primary;
+      }
+
+      @media screen and (max-width: $bp-tab){
+        left: -25px !important;
+      }
+    }
+  }
+
+
+  &__profile {
+    &-pic {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: contain;
+
+      @media screen and (min-width: $bp-tab + 1) {
+        margin-right: 5px;
+      }
+    }
+
+    &-name {
+      color: #606266;
+      font-size: 14px;
+      text-transform: lowercase;
+
+      @media screen and (max-width: $bp-tab){
+        display: none;
+      }
+    }
+  }
+}

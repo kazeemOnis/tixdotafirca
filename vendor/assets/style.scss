@@ -1,0 +1,96 @@
+@import './variables.scss';
+@import './navbar.scss';
+
+
+body {
+  font-family: $font;
+  background-color: $bodyBg;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.page {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+
+  &__title {
+    font-size: 28px;
+    text-transform: lowercase;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  &__button {
+    background-color: $primary;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 0.7rem 0.4rem;
+
+    &-text {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .flag-icon {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+
+  &__button:hover {
+    background-color: lighten($primary, 10);
+  }
+
+  .table {
+    thead {
+      th {
+        border: none;
+        text-transform: lowercase;
+        font-weight: 400;
+      }
+    }
+
+    tbody {
+      tr {
+        background-color: $secondary;
+      }
+
+      tr:nth-of-type(even) {
+        background-color: $alternate;
+      }
+
+      tr:hover {
+        box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+      }
+    }
+  }
+
+  .pagination {
+    .page-item {
+      .page-link {
+        color: $alternate;
+      }
+
+      .page-link:hover {
+        background-color: $alternate;
+        color: white;
+        border: $alternate;
+      }
+    }
+
+    .page-item.active {
+      .page-link {
+        background-color: $primary;
+        border-color: $primary;
+        color: #FFFFFF;
+      }
+    }
+  }
+}
