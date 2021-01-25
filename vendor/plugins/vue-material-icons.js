@@ -1,6 +1,6 @@
 import Vue from 'vue';1
 import 'vue-material-design-icons/styles.css';
-import flag from 'vue-material-design-icons/flag.vue';
+import flag from 'vue-material-design-icons/Flag.vue';
 import arrowRight from 'vue-material-design-icons/ArrowRight.vue';
 
 export default function materialIcons () {
