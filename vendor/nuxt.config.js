@@ -14,12 +14,12 @@ export default {
       { name: 'description', content: 'Tix is a refreshing approach to event ticketing in Africa. Create and sell your first ticket from your phone in under 10 minutes.' },
       { name: 'title', content: 'Tix - Buy and sell event tickets on the internet' },
       { property: 'og:type', content: 'website'},
-      { property: 'og:url', content: 'https://tix.com.ng/'},
+      { property: 'og:url', content: 'https://tixdotafrica.netlify.app/'},
       { property: 'og:title', content: 'Tix - Buy and sell event tickets on the internet'},
       { property: 'og:description', content: 'Tix is a refreshing approach to event ticketing in Africa. Create and sell your first ticket from your phone in under 10 minutes.'},
       { property: 'og:image', content: 'https://tix.com.ng/static/images/seo.png'},
       { property: 'twitter:card', content: 'summary_large_image'},
-      { property: 'twitter:url', content: 'https://tix.com.ng/'},
+      { property: 'twitter:url', content: 'https://tixdotafrica.netlify.app/'},
       { property: 'twitter:title', content: 'Tix - Buy and sell event tickets on the internet'},
       { property: 'twitter:description', content: 'Tix is a refreshing approach to event ticketing in Africa. Create and sell your first ticket from your phone in under 10 minutes.'},
       { property: 'twitter:image', content: 'https://tix.com.ng/static/images/seo.png'},
@@ -36,7 +36,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/vue-material-icons', mode: 'client' }
+    { src: '@/plugins/vue-material-icons' }
   ],
 
   axios: {
