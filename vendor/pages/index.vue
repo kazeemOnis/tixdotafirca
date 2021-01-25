@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="page__heading">
       <h1 class="page__title">
         your attendees
       </h1>
@@ -19,6 +19,7 @@
         class="mb-5"
         striped
         hover
+        responsive
         :items="data"
         :per-page="perPage"
         :current-page="currentPage"
